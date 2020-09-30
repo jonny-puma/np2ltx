@@ -1,3 +1,5 @@
+import numpy as np
+
 def printMatrix(M, name):
     R_ltx = ""
     n, m = M.shape
