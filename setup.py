@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="np2ltx-JONNY-PUMA",
+    name="np2ltx",
     version="0.0.1",
     author="Johannes Giercsky Nilssen",
     author_email="",
