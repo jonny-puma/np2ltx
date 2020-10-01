@@ -34,4 +34,8 @@ def print_matrix(M, name):
     # Display results as latex with some padding
     display(Math(r"\\~\\" + ltx + r"\\~\\"))
     
+def print_math(equation):
+    display(Math(equation))
     
+def print_text(text):
+    display(Math(r"\text{" + text + r"}")
