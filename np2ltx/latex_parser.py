@@ -19,7 +19,6 @@ def matrix2string(M, name):
 
 def print_matrix(M, name):
     ltx = matrix2string(M, name)
-
     # Display results as latex with some padding
     display(Math(r"\\~\\" + ltx + r"\\~\\"))
     
