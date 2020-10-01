@@ -13,7 +13,7 @@ def matrix2string(M, name):
             
             # format according to type
             if entry_type in (float, np.float64):
-                ltx += f"{entry:1.4}"
+                ltx += f"{entry:.5}"
             elif entry_type in (bool, np.bool_):
                 ltx += str(entry*1)
             else:
