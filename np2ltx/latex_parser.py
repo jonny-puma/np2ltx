@@ -38,4 +38,4 @@ def print_math(equation):
     display(Math(equation))
     
 def print_text(text):
-    display(Math(r"\text{" + text + r"}")
+    display(Math(r"\text{" + text + r"}"))
