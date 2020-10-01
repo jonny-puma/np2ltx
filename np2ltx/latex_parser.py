@@ -14,7 +14,7 @@ def matrix2string(M, name):
             # format according to type
             if entry_type == float:
                 ltx += f"{entry:1.4}"
-            elif entry_type = bool
+            elif entry_type == bool
                 ltx += str(entry*1)
             else:
                 ltx += str(entry)
