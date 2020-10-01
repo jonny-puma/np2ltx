@@ -10,11 +10,11 @@ def matrix2string(M, name):
         for j in range(m):
             ltx += f"{M[i,j]:1.4}" + (" & " if j < m-1 else " \\ \n ")
     
-    return fr"""
+    return f"""
             {name} = 
-            \begin{{bmatrix}}
+            \begin{{bmatrix}} \n
             {ltx}
-            \end{{bmatrix}}
+            \end{{bmatrix}} \n
             """
 
 def printMatrix(M, name):
