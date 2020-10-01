@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="np2ltx",
-    version="0.0.1",
+    version="0.1",
     author="Johannes Giercsky Nilssen",
     author_email="",
     description="Parse numpy to latex",
