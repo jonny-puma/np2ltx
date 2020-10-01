@@ -8,7 +8,7 @@ def matrix2string(M, name):
     # Parse numpy matrix into latex
     for i in range(n):
         for j in range(m):
-            ltx += f"{M[i,j]:1.4}" + (" & " if j < m-1 else "\\\\\n")
+            ltx += f"{M[i,j]:1.4}" + (" & " if j < m-1 else " \\\\ \n ")
 
     return ltx
 
