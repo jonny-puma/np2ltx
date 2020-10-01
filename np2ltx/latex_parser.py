@@ -8,7 +8,7 @@ def matrix2string(M, name):
     dim = M.ndim
     if dim < 2:
         n = M.shape[0]
-        m = 0
+        m = 1
         if n == 0:
             ltx = r"\{0\}"
     elif dim > 2:
