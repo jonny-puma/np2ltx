@@ -3,7 +3,18 @@ from IPython.display import display, Markdown, Math
 
 def matrix2string(M, name):
     ltx = ""
-    n, m = M.shape
+    
+    # get dimensions
+    dim = M.ndim
+    if dim < 2:
+        n = M.shape[0]
+        m = 0
+        if n == 0:
+            ltx = r"\{0\}"
+    elif dim > 2:
+        raise ValueError("Matrix must have dimension less then 3")
+    else:
+        n, m = M.shape
 
     # Parse numpy matrix into latex
     for i in range(n):
