@@ -1,8 +1,8 @@
 import numpy as np
 from IPython.display import display, Markdown, Math
 
-fprecision = 5
-cprecision = 2
+fprecision = 3
+cprecision = 1
 
 
 def matrix2string(M, name):
@@ -48,7 +48,7 @@ def parse_entry(entry):
     # format according to type
     entry_type = type(entry)
     if entry_type in (float, np.float64):
-        return parse_float(entry, 5)
+        return parse_float(entry, fprecision)
     elif entry_type in (bool, np.bool_):
         return str(entry*1)
     elif entry_type == np.complex128:
