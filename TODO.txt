@@ -2,3 +2,4 @@
  - parse fractions
  - settings
  - -0 issue
+ - publish to pypi
