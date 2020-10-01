@@ -12,9 +12,9 @@ def matrix2string(M, name):
             entry_type = type(entry)
             
             # format according to type
-            if entry_type == float:
+            if entry_type in (float, np.float64):
                 ltx += f"{entry:1.4}"
-            elif entry_type == bool:
+            elif entry_type in (bool, np.bool_):
                 ltx += str(entry*1)
             else:
                 ltx += str(entry)
