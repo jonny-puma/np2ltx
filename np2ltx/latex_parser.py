@@ -5,7 +5,7 @@ fprecision = 3
 cprecision = 1
 
 
-def matrix2string(M, name):
+def matrix2string(M):
     # get dimensions
     dim = M.ndim
     if dim < 2:
@@ -15,7 +15,6 @@ def matrix2string(M, name):
     else:
         ltx = parse_2d(M)
     return f"""
-            {name} = 
             \\begin{{bmatrix}} \n
             {ltx}
             \\end{{bmatrix}}
@@ -52,10 +51,10 @@ def parse_entry(entry):
     elif entry_type in (bool, np.bool_):
         return str(entry*1)
     elif entry_type == np.complex128:
-        return parse_imag(entry)
+        return parse_complex(entry)
     return str(entry)
 
-def parse_imag(entry):
+def parse_complex(entry):
     if entry.imag == 0:
         return parse_float(entry.real,fprecision)
     else:
@@ -70,9 +69,36 @@ def parse_float(entry, precision):
         return f"{entry:.{precision}f}"
 
 def print_matrix(M, name):
-    ltx = matrix2string(M, name)
+    ltx = matrix2string(M)
     # Display results as latex with some padding
-    display(Math(r"\\~\\" + ltx + r"\\~\\"))
+    display(Math(r"\\~\\"+ f"{name}=" + ltx + r"\\~\\"))
+    
+def print_matmul(A, B, resultname):
+    C = A @ B
+    ltxA = matrix2string(A)
+    ltxB = matrix2string(B)
+    ltxC = matrix2string(C)
+    display(Math(f"{resultname}={ltxA}{ltxB}={ltxC}"))
+    
+def print_innerp(u, v, resultname):
+    w = u @ v
+    ltxu = matrix2string(np.r_['r', u])
+    ltxv = matrix2string(v)
+    display(Math(f"{resultname}={ltxu}{ltxv}={w}"))
+    
+def print_outerp(u, v, resultname):
+    w = np.outer(u, v)
+    ltxu = matrix2string(u)
+    ltxv = matrix2string(np.r_['r', v])
+    ltxw = matrix2string(w)
+    display(Math(f"{resultname}={ltxu}{ltxv}={ltxw}"))
+    
+def print_cross(u, v, resultname):
+    w = np.cross(u,v)
+    ltxu = matrix2string(u)
+    ltxv = matrix2string(v)
+    ltxw = matrix2string(w)
+    display(Math(f"{resultname}={ltxu}\\times{ltxv}={ltxw}"))
     
 def print_math(equation):
     display(Math(equation))
